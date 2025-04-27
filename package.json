@@ -1,0 +1,11 @@
+{
+  "name": "contacts-backend-project",
+  "version": "1.0.0",
+  "description": "contact management backend app",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "harsh sachan",
+  "license": "MIT"
+}
