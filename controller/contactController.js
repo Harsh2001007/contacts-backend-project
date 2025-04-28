@@ -52,9 +52,18 @@ const getContact = asyncHandler(async (req, resp) => {
 //@routes get /api/contacts/id
 //@access public
 const updateContact = asyncHandler(async (req, resp) => {
-  resp.status(200).json({
-    message: "UPDATE CONTACT FOR ...",
-  });
+  const contact = await Contact.findById(req.params.id);
+  if (!contact) {
+    resp.status(404);
+    throw new Error("contact not found");
+  }
+
+  const updatedContact = await Contact.findByIdAndUpdate(
+    req.params.id,
+    req.body,
+    { new: true }
+  );
+  resp.status(200).json({ updateContact });
 });
 
 //@desc get contact
